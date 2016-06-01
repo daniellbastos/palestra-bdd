@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="pt-br" > <![endif]-->
+{% load static %}
+<html class="no-js" lang="pt-br" >
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BDD</title>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="top-bar">
+        <div class="top-bar-left">
+            <ul class="menu">
+                <li class="menu-text">Exemplo BDD</li>
+            </ul>
+        </div>
+    </div>
+    {% for message in messages %}
+        <div data-alert class="callout {{ message.tags }}" data-closable>
+            {{ message }}
+            <button class="close-button" type="button" data-close>
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endfor %}
+    <div class="row">
+        <div class="large-12 columns">
+            {% block content %}{% endblock content %}
+        </div>
+    </div>
+    <script src="{% static 'js/jquery-1.12.3.min.js' %}"></script>
+    <script src="{% static 'js/foundation.min.js' %}"></script>
+    <script>$(document).foundation();</script>
+</body>
+</html>

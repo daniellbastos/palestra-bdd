@@ -1,0 +1,16 @@
+<div class="row{% if field.errors %} error{% endif %}">
+    <div class="large-12 columns">
+        {{ field.label_tag}}
+        {% block content_field %}
+        <div>
+            {{ field }}
+        </div>
+        {% endblock %}
+        {% if field.help_text %}
+            <small class="helptext">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+            <small{% if field.errors %} class="error"{% endif %}>{{ error|escape }}</small>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h4>Novo cliente</h4>
+    <form action="{{ request.path }}" method="post">{% csrf_token %}
+        {{ form }}
+        <button type="submit" class="button">Salvar</button>
+    </form>
+{% endblock content %}

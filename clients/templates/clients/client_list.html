@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h4>Clientes</h4>
+    <div class="stacked-for-small button-group">
+        <a class="button" href="{% url 'clients:client-create' %}">Novo cliente</a>
+        <a class="button" href="{% url 'clients:inactive-client-list' %}">Visualizar clientes inativos</a>
+    </div>
+
+    <table id="client-list">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Data de nascimento</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+            <tr>
+                <td>{{ object.name }}</td>
+                <td>{{ object.email }}</td>
+                <td>{{ object.birth_date|date:"d/m/Y" }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}
